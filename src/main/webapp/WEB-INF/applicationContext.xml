@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"
+	default-autowire="byName">
+
+	<context:component-scan
+		base-package="com.connect_group.thymesheet.sample.mvc" />
+
+	<mvc:annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources/ directory -->
+
+	<mvc:resources mapping="/resources/**" location="/resources/" cache-period="86400"/>
+  
+
+	<!-- Thymeleaf -->
+	<bean id="templateResolver"
+	       class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+ 	  <property name="prefix" value="/html/" />
+	  <property name="suffix" value=".html" />
+	  <property name="characterEncoding" value="UTF-8" />
+	  <property name="templateMode" value="THYMESHEET_HTML5" />
+	  <property name="cacheable" value="false" />
+	  <property name="order" value="1"/>
+	</bean>
+	    
+	<bean id="templateEngine"
+	      class="org.thymeleaf.spring3.SpringTemplateEngine">
+	  <property name="templateResolver" ref="templateResolver" />
+	  <property name="templateModeHandlers">
+	  	<set>
+	  		<bean class="com.connect_group.thymesheet.ThymesheetLegacyHtml5TemplateModeHandler"/>
+	  		<bean class="com.connect_group.thymesheet.ThymesheetHtml5TemplateModeHandler"/>
+	  	</set>
+	  </property>
+	  <property name="additionalDialects">
+	  	<set>
+	  		<bean class="com.connect_group.thymesheet.sample.dialect.SampleDialect"/>
+	  	</set>
+	  </property>
+	</bean>
+	
+	<bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
+	  <property name="characterEncoding" value="UTF-8" />
+	  <property name="templateEngine" ref="templateEngine" />
+	  <property name="order" value="0" />
+	</bean>
+	
+	<bean id="applicationProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:properties/application.properties</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="true"/>
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="applicationProperties" />
+	</bean>
+	
+	<bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+	
+</beans>

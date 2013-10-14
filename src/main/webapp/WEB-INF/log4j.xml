@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<param name="threshold" value="WARN" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{ISO8601}] %-5p %c %m %n" />
+		</layout>
+	</appender>
+
+	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="file"
+			value="/var/lib/configureconnect/jdxconfigurator/logs/jdx.log" />
+		<param name="MaxFileSize" value="10000KB" />
+		<param name="MaxBackupIndex" value="3" />
+		<param name="threshold" value="WARN" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{ISO8601}] %-5p %c %m %n" />
+		</layout>
+	</appender>
+
+	<!-- Hide the apache http client WIRE logging -->
+	<logger name="org.apache">
+		<level value="error" />
+	</logger>
+	<logger name="org.springframework">
+		<level value="error" />
+	</logger>
+	<logger name="org.thymeleaf">
+		<level value="debug" />
+	</logger>
+
+	<!-- -->
+	<!-- setup log4j's root logger -->
+	<!-- -->
+	<root>
+		<priority value="all" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="fileAppender" />
+	</root>
+	
+</log4j:configuration>

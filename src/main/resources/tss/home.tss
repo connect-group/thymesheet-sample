@@ -1,0 +1,24 @@
+h1 {
+	th-text: "#{welcome}";
+}
+
+p {
+	th-utext: "#{intro}";
+}
+
+ul {
+	th-remove: "all-but-first";
+}
+
+ul li {
+	th-each: "link : ${links}";
+}
+
+ul li a {
+	th-utext: "${link.text}";
+	th-href: "${link.url}";
+}
+
+div {
+	sample-removetagunless: "'false'";
+}
