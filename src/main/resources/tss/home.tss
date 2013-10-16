@@ -6,15 +6,15 @@ p {
 	th-utext: "#{intro}";
 }
 
-ul {
+h3 + ul {
 	th-remove: "all-but-first";
 }
 
-ul li {
+ul li:first-child {
 	th-each: "link : ${links}";
 }
 
-ul li a {
+ul li:first-child a {
 	th-utext: "${link.text}";
 	th-href: "${link.url}";
 }
