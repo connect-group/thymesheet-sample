@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.connect_group.thymesheet.sample.beans.LinkBean;
 import com.connect_group.thymesheet.sample.beans.ProductBean;
+import com.connect_group.thymesheet.sample.beans.UserBean;
 
 @Controller
 public class HomePageController {
@@ -38,5 +39,14 @@ public class HomePageController {
 		ProductBean p4 = new ProductBean("Note Book", 2.00);
 		
 		return Arrays.asList(p1,p2,p3,p4);
+	}
+	
+	@ModelAttribute("users") 
+	public List<UserBean> getUsers() {
+		UserBean u1 = new UserBean("adz", "A Perry", "United Kingdom");
+		UserBean u2 = new UserBean("rhys", "R Charlton", "Outer Mongolia");
+		UserBean u3 = new UserBean("leo", "Leonardo", "New York");
+		
+		return Arrays.asList(u1,u2,u3);
 	}
 }

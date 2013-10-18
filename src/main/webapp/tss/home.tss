@@ -23,29 +23,45 @@ div {
 	sample-removetagunless: "'false'";
 }
 
-
-
-
-
-
-
-
-table > thead > tr th:first-child {
+body > table:first-of-type > thead > tr th:first-child {
     th-text: "#{msgs.headers.name}"
 }
 
-table > thead > tr th:nth-child(2) {
+body > table:first-of-type > thead > tr th:nth-child(2) {
     th-text: "#{msgs.headers.price}"
 }
 
-table > tbody > tr {
+body > table:first-of-type > tbody > tr:first-child {
 	th-each:"prod : ${allProducts}";
 }
 
-table > tbody > tr > td:first-child {
+body > table:first-of-type > tbody > tr > td:first-child {
     th-text: "${prod.name}"
 }
 
-table > tbody > tr > td:nth-child(2) {
+body > table:first-of-type > tbody > tr > td:nth-child(2) {
     th-text: "${#numbers.formatDecimal(prod.price,1,2)}"
 }
+
+
+
+table.users tr:first-child:wrap(2) {
+	th-each:"user : ${users}";
+}
+
+table.users tr:nth-child(3):wrap("-*") {
+	th-remove:"all";
+}
+
+table.users tr:first-child td:first-child {
+	th-text:"${user.login}" 
+}
+
+table.users tr:first-child td:nth-child(2) {
+	th-text:"${user.name}" 
+}
+
+table.users tr:nth-child(2) td {
+	th-text:"${user.address}" 
+}
+
