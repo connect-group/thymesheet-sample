@@ -3,3 +3,12 @@ body {
 	margin: 0 auto;
 	font-family: Helvetica, sans-serif;
 }
+
+img {
+	
+	vertical-align:middle;
+}
+
+footer {
+	margin-top: 30px;
+}

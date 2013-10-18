@@ -1,0 +1,3 @@
+.removeme {
+	th-remove: "all";
+}

@@ -8,9 +8,12 @@
 <link rel="thymesheet" href="/tss/home.tss" />
 </head>
 <body>
+
 	<h1>Welcome</h1>
 	<p>Introduction to Thymesheet</p>
 
+	<p>Thymesheet is a plugin for Thymeleaf which allows you to add Thymeleaf attributes from an external 'thymesheet' file, much like a CSS file.</p>
+	
 
 	<h2>Table Intro</h2>
 	<table>
@@ -38,5 +41,8 @@
 
 	<div style="background: grey">This should NOT be on a grey
 		background and proves a custom dialect has worked in a tss file.</div>
+		
+	<footer data-th-substituteby="fragment :: #headerfragment">Logo goes here</footer>
+		
 </body>
 </html>
