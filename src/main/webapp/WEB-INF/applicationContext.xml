@@ -27,31 +27,15 @@
  	  <property name="prefix" value="/html/" />
 	  <property name="suffix" value=".html" />
 	  <property name="characterEncoding" value="UTF-8" />
-	  <property name="templateMode" value="THYMESHEET_HTML5" />
+	  <property name="templateMode" value="HTML5" />
 	  <property name="cacheable" value="false" />
 	  <property name="order" value="1"/>
 	</bean>
 	
 	
-	<bean id="urlFactory" class="com.connect_group.thymesheet.sample.spring.SpringServletContextURLFactory"/>
-	
 	<bean id="templateEngine"
-	      class="org.thymeleaf.spring3.SpringTemplateEngine">
+	      class="com.connect_group.thymesheet.spring3.SpringThymesheetTemplateEngine">
 	  <property name="templateResolver" ref="templateResolver" />
-	  <property name="templateModeHandlers">
-	  	<set>
-	  		<bean class="com.connect_group.thymesheet.ThymesheetLegacyHtml5TemplateModeHandler">
-	  			<property name="urlFactory">
-	  				<ref bean="urlFactory"/>
-	  			</property>
-	  		</bean>
-	  		<bean class="com.connect_group.thymesheet.ThymesheetHtml5TemplateModeHandler">
-	  			<property name="urlFactory">
-	  				<ref bean="urlFactory"/>
-	  			</property>
-	  		</bean>
-	  	</set>
-	  </property>
 	  <property name="additionalDialects">
 	  	<set>
 	  		<bean class="com.connect_group.thymesheet.sample.dialect.SampleDialect"/>
