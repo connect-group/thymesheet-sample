@@ -49,7 +49,7 @@ table.users tr:first-child:wrap(2) {
 	th-each:"user : ${users}";
 }
 
-table.users tr:nth-child(3):wrap("-*") {
+table.users tr:nth-child(3):wrap("*") {
 	th-remove:"all";
 }
 
