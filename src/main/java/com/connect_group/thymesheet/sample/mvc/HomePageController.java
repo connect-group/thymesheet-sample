@@ -18,7 +18,7 @@ public class HomePageController {
 
 	@RequestMapping(value="/")
 	public ModelAndView doHomepage() {
-		return new ModelAndView("home");
+		return new ModelAndView("/html/home.html");
 	}
 
 	@ModelAttribute("links")

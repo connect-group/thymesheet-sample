@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/tss/xml.tss" type="thymesheet" ?>
+<products>
+	<product>
+		<name>Name A</name>
+		<price>Price A</price>
+	</product>
+	<product>
+		<name>Name B</name>
+		<price>Price B</price>
+	</product>
+</products>

@@ -24,9 +24,12 @@
 	<!-- Thymeleaf -->
 	<bean id="templateResolver"
 	       class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
- 	  <property name="prefix" value="/html/" />
-	  <property name="suffix" value=".html" />
 	  <property name="characterEncoding" value="UTF-8" />
+	  <property name="xmlTemplateModePatterns">
+	  	<set>
+	  		<value>*.xml</value>
+	  	</set>
+	  </property>
 	  <property name="templateMode" value="HTML5" />
 	  <property name="cacheable" value="false" />
 	  <property name="order" value="1"/>
@@ -35,7 +38,11 @@
 	
 	<bean id="templateEngine"
 	      class="com.connect_group.thymesheet.spring3.SpringThymesheetTemplateEngine">
-	  <property name="templateResolver" ref="templateResolver" />
+	  <property name="templateResolvers" >
+	  	<set>
+	  		<ref bean="templateResolver"/>
+	  	</set>
+	  </property>
 	  <property name="additionalDialects">
 	  	<set>
 	  		<bean class="com.connect_group.thymesheet.sample.dialect.SampleDialect"/>

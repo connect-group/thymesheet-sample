@@ -1,0 +1,15 @@
+products > product:not(:first-child) {
+	th-remove: "all";
+}
+
+products > product:first-child {
+	th-each:"prod : ${allProducts}";
+}
+
+products > product:first-child > name {
+    th-text: "${prod.name}"
+}
+
+products > product:first-child > price {
+    th-text: "${#numbers.formatDecimal(prod.price,1,2)}"
+}
