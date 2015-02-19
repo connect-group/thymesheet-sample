@@ -19,8 +19,6 @@
  */
 package com.connect_group.thymesheet.sample.dialect;
 
-import javax.servlet.ServletContext;
-
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.dom.Node;
@@ -30,8 +28,10 @@ import org.thymeleaf.processor.IAttributeNameProcessorMatcher;
 import org.thymeleaf.processor.IProcessorMatcher;
 import org.thymeleaf.processor.ProcessorMatchingContext;
 import org.thymeleaf.processor.ProcessorResult;
-import org.thymeleaf.spring3.context.SpringWebContext;
+import org.thymeleaf.spring4.context.SpringWebContext;
 import org.thymeleaf.standard.expression.StandardExpressionProcessor;
+
+import javax.servlet.ServletContext;
 
 /**
  * A processor base class that can handle both attribute and DOM manipulation.

@@ -1,4 +1,5 @@
 thymesheet-sample
 =================
 
-Reference application for Thymeleaf+Thymesheet
+Reference application for Thymeleaf, Thymesheet and thymeleaf-tdd
+

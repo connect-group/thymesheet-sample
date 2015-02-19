@@ -15,8 +15,7 @@ ul li:first-child {
 }
 
 ul li:first-child a {
-	th-utext: "${link.text}";
-	th-href: "${link.url}";
+	bean-use: "${link}";
 }
 
 div {

@@ -20,27 +20,27 @@
 package com.connect_group.thymesheet.sample.beans;
 
 public class LinkBean {
-	private String url;
+	private String href;
 	private String text;
 	
 	public LinkBean(String url, String text) {
-		this.setUrl(url);
-		this.setText(text);
+		this.setHref(url);
+		this.setUtext(text);
 	}
 
-	public String getUrl() {
-		return url;
+	public String getHref() {
+		return href;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setHref(String url) {
+		this.href = url;
 	}
 
-	public String getText() {
+	public String getUtext() {
 		return text;
 	}
 
-	public void setText(String text) {
+	public void setUtext(String text) {
 		this.text = text;
 	}
 }
